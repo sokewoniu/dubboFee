@@ -30295,3 +30295,357 @@ java.lang.NullPointerException
 delete from accounts_details where  BUSSINESS_CODE='d6aa9e9f03c94c81b1dacbc16f3bd7e6' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
 [INFO][2018-11-20 12:59:57][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:6
 [INFO][2018-11-20 12:59:57][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：289===================
+[INFO][2018-11-20 13:02:00][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:02:00][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"784cce65-cec7-456d-97fb-3bc38517abeb"},"detailsLst":[],"operMan":"XLGLTZ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-20 13:02:00][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.11. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor629.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-20 13:02:14][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:02:14][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"7b5beb87-3fd1-44c6-abbb-9fbca516940b"},"detailsLst":[],"operMan":"XLGLHW","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-20 13:02:14][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.10. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-20 13:03:07][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:03:07][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"77ae5454-5d29-4291-aaa7-9b1420a9b2ec"},"detailsLst":[],"operMan":"ZSGZKZZJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-20 13:03:08][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='77ae5454-5d29-4291-aaa7-9b1420a9b2ec' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-20 13:03:08][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:6
+[INFO][2018-11-20 13:03:08][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：222===================
+[INFO][2018-11-20 13:03:58][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:03:58][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"80c57f26-4007-4cda-9699-fa844e6dbfae"},"detailsLst":[],"operMan":"XLGLHW","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-20 13:03:58][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.9. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-20 13:04:53][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:04:53][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"e820c06c392f4069b1360407b0f55e7b"},"detailsLst":[],"operMan":"ZSGZKZZJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-20 13:04:53][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='e820c06c392f4069b1360407b0f55e7b' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-20 13:04:53][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:6
+[INFO][2018-11-20 13:04:53][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：292===================
+[INFO][2018-11-20 13:04:59][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:04:59][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"85350119-14d5-47ac-b9c0-8e71e6feddc6"},"detailsLst":[],"operMan":"ZSGZKZZJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-20 13:04:59][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='85350119-14d5-47ac-b9c0-8e71e6feddc6' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-20 13:04:59][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:5
+[INFO][2018-11-20 13:04:59][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：220===================
+[INFO][2018-11-20 13:05:01][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:05:01][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"5b09ebec116046779e6d3430bfb023cc"},"detailsLst":[],"operMan":"ZSCDHHB","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[ERROR][2018-11-20 13:05:01][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.10. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor629.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-20 13:05:19][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:05:19][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"bebdecdd-bf83-48bc-8947-03b3e4a24d73"},"detailsLst":[],"operMan":"ZSGZKZZJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-20 13:05:20][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='bebdecdd-bf83-48bc-8947-03b3e4a24d73' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-20 13:05:20][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:6
+[INFO][2018-11-20 13:05:20][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：228===================
+[INFO][2018-11-20 13:05:22][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:05:22][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"44d7031f-857e-4018-b31c-a40adb4c3cfe"},"detailsLst":[],"operMan":"ZSCDHHB","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[ERROR][2018-11-20 13:05:22][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.8. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor629.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-20 13:06:12][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:06:12][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"058762c8-5ad9-443d-bee8-e5433293b9f5"},"detailsLst":[],"operMan":"XLGLTZ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-20 13:06:12][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.10. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor629.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-20 13:06:12][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:06:12][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"6d280373-939f-491e-8e06-cc7c09fc77e4"},"detailsLst":[],"operMan":"XLGLHW","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-20 13:06:13][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.8. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-20 13:06:31][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:06:31][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"4cf8ab68-6a19-4181-9ab8-fc80fdfd0bed"},"detailsLst":[],"operMan":"ZSGZKZZJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-20 13:06:31][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='4cf8ab68-6a19-4181-9ab8-fc80fdfd0bed' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-20 13:06:31][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:6
+[INFO][2018-11-20 13:06:31][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：225===================
+[INFO][2018-11-20 13:06:41][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:06:41][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"df35e13f-b799-4f7c-a2a9-7a4abcdc43ad"},"detailsLst":[],"operMan":"ZKLJF","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-20 13:06:41][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='df35e13f-b799-4f7c-a2a9-7a4abcdc43ad' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-20 13:06:41][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:7
+[INFO][2018-11-20 13:06:41][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：233===================
+[INFO][2018-11-20 13:07:18][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:07:18][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"1ee00769-38ae-45b1-a9da-2ba26bd68436"},"detailsLst":[],"operMan":"ZSGZKZZJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-20 13:07:18][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='1ee00769-38ae-45b1-a9da-2ba26bd68436' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-20 13:07:18][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:7
+[INFO][2018-11-20 13:07:18][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：214===================
+[INFO][2018-11-20 13:07:43][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:07:43][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"969df84e-7046-473c-b5ff-3be44a9bdc02"},"detailsLst":[],"operMan":"XLGLHW","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-20 13:07:43][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.10. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-20 13:08:16][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:08:16][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"1eccf5155fe648658711f38eb45103db"},"detailsLst":[],"operMan":"XLGZK04","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-20 13:08:16][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.11. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-20 13:08:23][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:08:23][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"2ee09128-8405-4163-846b-1b9a32f1d886"},"detailsLst":[],"operMan":"zsjxcd","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[ERROR][2018-11-20 13:08:23][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.9. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor629.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-20 13:09:22][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:09:22][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"8a585ff2ca7c42be8ba8ecadede0af9b"},"detailsLst":[],"operMan":"XLGLHW","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-20 13:09:22][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.10. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-20 13:09:50][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:09:50][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"d249bfb9-b625-46c7-bf5d-26075c261a2f"},"detailsLst":[],"operMan":"ZSGZKZZJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-20 13:09:50][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='d249bfb9-b625-46c7-bf5d-26075c261a2f' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-20 13:09:50][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:7
+[INFO][2018-11-20 13:09:50][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：282===================
+[INFO][2018-11-20 13:10:51][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-20 13:10:51][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"e32f620a166d4f368cd1fc244449ab0c"},"detailsLst":[],"operMan":"ZSCDHHB","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[ERROR][2018-11-20 13:10:51][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.10. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor629.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
