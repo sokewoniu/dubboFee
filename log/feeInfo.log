@@ -11334,3 +11334,814 @@ java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费�
 delete from accounts_details where  TENANCY_ID='ZSG' and BILL_NO='ES2018112123' and SETTLE_STATUS=0 and FEE_LIST_ID in('0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0102','0120','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
 [INFO][2018-11-26 09:00:21][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:7
 [INFO][2018-11-26 09:00:21][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：242==========================
+[INFO][2018-11-26 09:01:21][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:01:21][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"0ba5e1c1-3419-45fa-a0b0-c4fe056e8b0b"},"detailsLst":[],"operMan":"zszz","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[ERROR][2018-11-26 09:01:21][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.10. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor727.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-26 09:01:38][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:01:38][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"3cc332a07d964340940ef5cc49b6a0dc"},"detailsLst":[],"operMan":"XLGYWLGJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-26 09:01:38][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.9. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-26 09:01:38][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:01:38][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"476fe2c2-8554-4db5-86ff-f71c11275355"},"detailsLst":[],"operMan":"zszz","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[ERROR][2018-11-26 09:01:38][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.10. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor727.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-26 09:01:40][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:01:40][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"8a970a40fc664a2192808f769aaa006f"},"detailsLst":[],"operMan":"XLGY07","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-26 09:01:40][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.9. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor727.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-26 09:02:10][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:02:10][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"0b78e26c3d124a849af407bd2cde3bdc"},"detailsLst":[],"operMan":"zsjxcd","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[ERROR][2018-11-26 09:02:10][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.10. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor727.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-26 09:02:43][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:02:43][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"d9905fe4-35df-4995-bb51-1b5bb81556ae"},"detailsLst":[],"operMan":"9021","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:02:43][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='d9905fe4-35df-4995-bb51-1b5bb81556ae' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:02:43][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:2
+[INFO][2018-11-26 09:02:43][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：168===================
+[INFO][2018-11-26 09:03:23][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:03:23][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"56e304c00e9b4b59965cb6d36b974a6c"},"detailsLst":[],"operMan":"XLGYWLGJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-26 09:03:23][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.9. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-26 09:03:33][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:03:33][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"933e3c27-804f-4ca6-a848-072b92eb8939"},"detailsLst":[],"operMan":"9021","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:03:33][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='933e3c27-804f-4ca6-a848-072b92eb8939' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:03:33][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:2
+[INFO][2018-11-26 09:03:33][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：171===================
+[INFO][2018-11-26 09:04:02][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:04:02][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"be8ee466-644a-4287-9c35-2284a99e35ad"},"detailsLst":[],"operMan":"9021","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:04:02][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='be8ee466-644a-4287-9c35-2284a99e35ad' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:04:02][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:2
+[INFO][2018-11-26 09:04:02][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：175===================
+[INFO][2018-11-26 09:04:14][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:04:14][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"3aa473ec-faf7-46f9-9843-f2dddf088a5f"},"detailsLst":[],"operMan":"ZSGZKZZJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:04:14][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='3aa473ec-faf7-46f9-9843-f2dddf088a5f' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:04:14][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:6
+[INFO][2018-11-26 09:04:14][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：248===================
+[INFO][2018-11-26 09:04:21][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:04:21][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"be08f433-b1d5-4353-8dd5-a457108b8f32"},"detailsLst":[],"operMan":"9021","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:04:21][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='be08f433-b1d5-4353-8dd5-a457108b8f32' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:04:21][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:2
+[INFO][2018-11-26 09:04:21][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：186===================
+[INFO][2018-11-26 09:04:35][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:04:35][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"dc8bd248592d4ca8a74668428f231c0e"},"detailsLst":[],"operMan":"ZSCDZGY","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[ERROR][2018-11-26 09:04:35][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.8. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor727.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-26 09:04:50][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:04:50][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"billNo":"03HU181126218"},"detailsLst":[],"operMan":"ZSGCWHUZDH","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:04:50][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：1
+[INFO][2018-11-26 09:04:50][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：1
+[INFO][2018-11-26 09:04:50][com.ag.zhshan.account.service.BillService]提单号03HU181126218开始处理！箱数量1个
+[INFO][2018-11-26 09:04:50][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and BILL_NO='03HU181126218' and SETTLE_STATUS=0 and FEE_LIST_ID in('0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0102','0120','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:04:50][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:4
+[INFO][2018-11-26 09:04:50][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：354==========================
+[INFO][2018-11-26 09:05:31][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:05:31][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"decd21d6-4474-435e-8a8a-8404ecc75de5"},"detailsLst":[],"operMan":"XLGYWLGJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-26 09:05:31][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.8. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-26 09:06:01][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:06:01][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"b95ad1035a3a46daa54a15d796a82d6c"},"detailsLst":[],"operMan":"ZSCDHHB","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[ERROR][2018-11-26 09:06:01][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.11. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor727.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-26 09:06:06][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:06:06][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"484f3101-94b2-4659-8c35-33db5d5c72c5"},"detailsLst":[],"operMan":"ZSGZKZZJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:06:07][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='484f3101-94b2-4659-8c35-33db5d5c72c5' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:06:07][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:6
+[INFO][2018-11-26 09:06:07][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：295===================
+[INFO][2018-11-26 09:06:21][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:06:21][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"9dbbad13-ed8e-4404-a7a1-12a4218b3941"},"detailsLst":[],"operMan":"ZKWTY","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:06:21][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='9dbbad13-ed8e-4404-a7a1-12a4218b3941' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:06:21][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:5
+[INFO][2018-11-26 09:06:21][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：241===================
+[INFO][2018-11-26 09:06:46][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:06:46][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"109acd07-9133-48a2-aa1a-f3663cc6e2ec"},"detailsLst":[],"operMan":"XLGYWLGJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-26 09:06:46][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.10. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-26 09:07:27][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:07:27][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"764a5ce4-d9cb-47c9-a490-4edbd13a29de","ieId":"I"},"detailsLst":[],"operMan":"XLGTZW","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"XLG"}
+[INFO][2018-11-26 09:07:27][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：1
+[INFO][2018-11-26 09:07:27][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：14
+[INFO][2018-11-26 09:07:27][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='XLG' and BILL_NO='ES2018112403' and I_E_ID='I' and VID='764a5ce4-d9cb-47c9-a490-4edbd13a29de' and SETTLE_STATUS=0 and FEE_LIST_ID in('22216fa84a1a47d29489bd60f0feb016','92a72bfb4e0d4e7dbe63990b3b1ca490','1c37330db6da4532b5c178b2077c9644','9e64f51c7bbe4e3a86667f9825aa810f','e8be910ba26b465dbfbc10ad9cb799f0','1ff60ef3fd0e45db8ee3d2e9d06dd650','a99fdc2e4ba641e8958445b08cbd667e','05df97452781419ea685190fedefbe24','2a39945e8f9e476c86e1a3c3143ebad4','d6a3d1077ae2436eaf1ff29cb0882269','830d9d8be1e84eb5b61fe3056a62470d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:07:27][com.ag.zhshan.account.service.BillService]提单号ES2018112403开始处理！箱数量14个
+[INFO][2018-11-26 09:07:27][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:14
+[INFO][2018-11-26 09:07:27][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：112==========================
+[INFO][2018-11-26 09:07:29][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:07:29][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"3b4e8087-f641-4bf1-8961-a6c15f97ea6f","ieId":"I"},"detailsLst":[],"operMan":"XLGTZW","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"XLG"}
+[INFO][2018-11-26 09:07:29][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：3
+[INFO][2018-11-26 09:07:29][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：16
+[INFO][2018-11-26 09:07:29][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='XLG' and I_E_ID='I' and VID='3b4e8087-f641-4bf1-8961-a6c15f97ea6f' and SETTLE_STATUS=0 and FEE_LIST_ID in('22216fa84a1a47d29489bd60f0feb016','92a72bfb4e0d4e7dbe63990b3b1ca490','1c37330db6da4532b5c178b2077c9644','9e64f51c7bbe4e3a86667f9825aa810f','e8be910ba26b465dbfbc10ad9cb799f0','1ff60ef3fd0e45db8ee3d2e9d06dd650','a99fdc2e4ba641e8958445b08cbd667e','05df97452781419ea685190fedefbe24','2a39945e8f9e476c86e1a3c3143ebad4','d6a3d1077ae2436eaf1ff29cb0882269','830d9d8be1e84eb5b61fe3056a62470d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:07:29][com.ag.zhshan.account.service.BillService]提单号EC2018112590开始处理！箱数量5个
+[INFO][2018-11-26 09:07:30][com.ag.zhshan.account.service.BillService]提单号ES2018112007开始处理！箱数量3个
+[INFO][2018-11-26 09:07:30][com.ag.zhshan.account.service.BillService]提单号WA2618112501开始处理！箱数量8个
+[INFO][2018-11-26 09:07:30][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:22
+[INFO][2018-11-26 09:07:30][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：151==========================
+[INFO][2018-11-26 09:07:36][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:07:36][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"7bf894d4-b9b2-4d9e-a20d-692dc4042d85","ieId":"I"},"detailsLst":[],"operMan":"XLGTZW","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"XLG"}
+[INFO][2018-11-26 09:07:36][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：2
+[INFO][2018-11-26 09:07:36][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：8
+[INFO][2018-11-26 09:07:36][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='XLG' and I_E_ID='I' and VID='7bf894d4-b9b2-4d9e-a20d-692dc4042d85' and SETTLE_STATUS=0 and FEE_LIST_ID in('22216fa84a1a47d29489bd60f0feb016','92a72bfb4e0d4e7dbe63990b3b1ca490','1c37330db6da4532b5c178b2077c9644','9e64f51c7bbe4e3a86667f9825aa810f','e8be910ba26b465dbfbc10ad9cb799f0','1ff60ef3fd0e45db8ee3d2e9d06dd650','a99fdc2e4ba641e8958445b08cbd667e','05df97452781419ea685190fedefbe24','2a39945e8f9e476c86e1a3c3143ebad4','d6a3d1077ae2436eaf1ff29cb0882269','830d9d8be1e84eb5b61fe3056a62470d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:07:36][com.ag.zhshan.account.service.BillService]提单号ES2018112008开始处理！箱数量2个
+[INFO][2018-11-26 09:07:36][com.ag.zhshan.account.service.BillService]提单号ES2018112402开始处理！箱数量6个
+[INFO][2018-11-26 09:07:36][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:12
+[INFO][2018-11-26 09:07:36][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：100==========================
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"8170685c-d818-4801-8519-a239884cf7a0","ieId":"I"},"detailsLst":[],"operMan":"XLGTZW","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"XLG"}
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：30
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：30
+[INFO][2018-11-26 09:07:40][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='XLG' and I_E_ID='I' and VID='8170685c-d818-4801-8519-a239884cf7a0' and SETTLE_STATUS=0 and FEE_LIST_ID in('22216fa84a1a47d29489bd60f0feb016','92a72bfb4e0d4e7dbe63990b3b1ca490','1c37330db6da4532b5c178b2077c9644','9e64f51c7bbe4e3a86667f9825aa810f','e8be910ba26b465dbfbc10ad9cb799f0','1ff60ef3fd0e45db8ee3d2e9d06dd650','a99fdc2e4ba641e8958445b08cbd667e','05df97452781419ea685190fedefbe24','2a39945e8f9e476c86e1a3c3143ebad4','d6a3d1077ae2436eaf1ff29cb0882269','830d9d8be1e84eb5b61fe3056a62470d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112124开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112124A开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112124B开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112125开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112125A开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112125B开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112126开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112126A开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112126B开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112126C开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112127开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112127A开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112127B开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112127C开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112303开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112303A开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112303B开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112303C开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号ES2018112303D开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072A开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072B开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072C开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072D开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072E开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072F开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072G开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072H开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072I开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]提单号TM2018111072J开始处理！箱数量1个
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:18
+[INFO][2018-11-26 09:07:40][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：253==========================
+[INFO][2018-11-26 09:07:45][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:07:45][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"d77209b5-e2a9-4ba5-a34f-17ff4037c9dd"},"detailsLst":[],"operMan":"zsyt","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[ERROR][2018-11-26 09:07:45][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.9. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.IllegalArgumentException: 外贸或码头拖车提柜出闸才计费！
+	at org.springframework.util.Assert.notNull(Assert.java:115)
+	at com.ag.zhshan.account.service.ShipperCarService.getDataSource(ShipperCarService.java:176)
+	at com.ag.zhshan.account.service.ShipperCarService.call(ShipperCarService.java:89)
+	at sun.reflect.GeneratedMethodAccessor727.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy21.call(Unknown Source)
+	at com.alibaba.dubbo.common.bytecode.Wrapper4.invokeMethod(Wrapper4.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:70)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:132)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:113)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"61c2526f-fd8a-43ca-a263-7ea1e2f88a30","ieId":"I"},"detailsLst":[],"operMan":"XLGTZW","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"XLG"}
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：7
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：40
+[INFO][2018-11-26 09:07:47][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='XLG' and I_E_ID='I' and VID='61c2526f-fd8a-43ca-a263-7ea1e2f88a30' and SETTLE_STATUS=0 and FEE_LIST_ID in('22216fa84a1a47d29489bd60f0feb016','92a72bfb4e0d4e7dbe63990b3b1ca490','1c37330db6da4532b5c178b2077c9644','9e64f51c7bbe4e3a86667f9825aa810f','e8be910ba26b465dbfbc10ad9cb799f0','1ff60ef3fd0e45db8ee3d2e9d06dd650','a99fdc2e4ba641e8958445b08cbd667e','05df97452781419ea685190fedefbe24','2a39945e8f9e476c86e1a3c3143ebad4','d6a3d1077ae2436eaf1ff29cb0882269','830d9d8be1e84eb5b61fe3056a62470d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]提单号CK2018610001开始处理！箱数量1个
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]提单号CK2018610002开始处理！箱数量2个
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]提单号CK2018610003开始处理！箱数量1个
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]提单号CK2018610004开始处理！箱数量1个
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]提单号CK2018610005开始处理！箱数量5个
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]提单号CK2018610006开始处理！箱数量5个
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]提单号CK2018610008开始处理！箱数量25个
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:60
+[INFO][2018-11-26 09:07:47][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：236==========================
+[INFO][2018-11-26 09:07:50][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:07:50][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"0c9a1b9e-257e-4b24-bde0-475b75d57438","ieId":"I"},"detailsLst":[],"operMan":"XLGTZW","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"XLG"}
+[INFO][2018-11-26 09:07:50][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：4
+[INFO][2018-11-26 09:07:50][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：28
+[INFO][2018-11-26 09:07:50][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='XLG' and I_E_ID='I' and VID='0c9a1b9e-257e-4b24-bde0-475b75d57438' and SETTLE_STATUS=0 and FEE_LIST_ID in('22216fa84a1a47d29489bd60f0feb016','92a72bfb4e0d4e7dbe63990b3b1ca490','1c37330db6da4532b5c178b2077c9644','9e64f51c7bbe4e3a86667f9825aa810f','e8be910ba26b465dbfbc10ad9cb799f0','1ff60ef3fd0e45db8ee3d2e9d06dd650','a99fdc2e4ba641e8958445b08cbd667e','05df97452781419ea685190fedefbe24','2a39945e8f9e476c86e1a3c3143ebad4','d6a3d1077ae2436eaf1ff29cb0882269','830d9d8be1e84eb5b61fe3056a62470d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:07:50][com.ag.zhshan.account.service.BillService]提单号ES2018101723开始处理！箱数量1个
+[INFO][2018-11-26 09:07:50][com.ag.zhshan.account.service.BillService]提单号ES2018111524开始处理！箱数量1个
+[INFO][2018-11-26 09:07:50][com.ag.zhshan.account.service.BillService]提单号ES2018112202开始处理！箱数量6个
+[INFO][2018-11-26 09:07:50][com.ag.zhshan.account.service.BillService]提单号ES2018112203开始处理！箱数量20个
+[INFO][2018-11-26 09:07:50][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:32
+[INFO][2018-11-26 09:07:50][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：161==========================
+[INFO][2018-11-26 09:08:27][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:08:27][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"e7551a5e-eb93-4660-8f77-81ce61fc44a4"},"detailsLst":[],"operMan":"XLGYWLGJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-26 09:08:27][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.9. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-26 09:08:40][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:08:40][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"a4b38a26a5004751bb67fddb760b362d"},"detailsLst":[],"operMan":"ZKWTY","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:08:41][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='a4b38a26a5004751bb67fddb760b362d' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:08:41][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:6
+[INFO][2018-11-26 09:08:41][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：319===================
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"8d57597e-e5ce-40cf-bf1d-e5331d31e1c8","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：66
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：83
+[INFO][2018-11-26 09:09:29][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and I_E_ID='I' and VID='8d57597e-e5ce-40cf-bf1d-e5331d31e1c8' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号EH2018112501P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号EH2018112502P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号EH2018112591开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018111904开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018111905开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018111905A开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018111905B开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018111905C开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018111926开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018111927开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112005开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112020开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112025开始处理！箱数量2个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112026开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112119开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112122开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112123开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112128开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112204开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112204A开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112204B开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112204C开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112204D开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112204E开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112205开始处理！箱数量2个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112205A开始处理！箱数量2个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112205B开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112218开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号ES2018112315开始处理！箱数量5个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号TM2018111071开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号TM2018111071A开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号TM2018111071B开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号TM2018111071C开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号TM2018111071D开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号TM2018111073开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号TM2018113054开始处理！箱数量7个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号WA18112501开始处理！箱数量4个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号WA2018112501开始处理！箱数量1个
+[INFO][2018-11-26 09:09:29][com.ag.zhshan.account.service.BillService]提单号WA2018112502开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112503开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112504开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112505开始处理！箱数量2个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112506开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112506A开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112506B开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112506C开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112511开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112512开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112521P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112522P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112523P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112524P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112525P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112526P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112527P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112528P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112551P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112552P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112553P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112554P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112555P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112556P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112558P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112559P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112560P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]提单号WA2018112561P开始处理！箱数量1个
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:237
+[INFO][2018-11-26 09:09:30][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：1586==========================
+[INFO][2018-11-26 09:09:33][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:09:33][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"billNo":"03HU181121145"},"detailsLst":[],"operMan":"ZSGHGJ","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:09:33][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：1
+[INFO][2018-11-26 09:09:33][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：1
+[INFO][2018-11-26 09:09:33][com.ag.zhshan.account.service.BillService]提单号03HU181121145开始处理！箱数量1个
+[INFO][2018-11-26 09:09:34][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and BILL_NO='03HU181121145' and SETTLE_STATUS=0 and FEE_LIST_ID in('0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0102','0120','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:8
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：337==========================
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"24629531-9caa-453b-b861-56e1fc6b9a44","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：5
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：33
+[INFO][2018-11-26 09:09:34][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and I_E_ID='I' and VID='24629531-9caa-453b-b861-56e1fc6b9a44' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]提单号CK1890301开始处理！箱数量10个
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]提单号CK1890302开始处理！箱数量20个
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]提单号CK1890507开始处理！箱数量1个
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]提单号CK2018903001开始处理！箱数量1个
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]提单号CK2018903002开始处理！箱数量1个
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:13
+[INFO][2018-11-26 09:09:34][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：306==========================
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"f80e808a-4f7e-4c6d-9d99-75585b20c0aa","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：22
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：37
+[INFO][2018-11-26 09:09:38][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and I_E_ID='I' and VID='f80e808a-4f7e-4c6d-9d99-75585b20c0aa' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]提单号ES2018111602开始处理！箱数量2个
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]提单号ES2018111906开始处理！箱数量1个
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]提单号ES2018111913开始处理！箱数量1个
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]提单号ES2018111916开始处理！箱数量1个
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]提单号ES2018112103开始处理！箱数量1个
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]提单号ES2018112106开始处理！箱数量1个
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]提单号ES2018112108开始处理！箱数量2个
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]提单号ES2018112109开始处理！箱数量2个
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]提单号HU2018112201开始处理！箱数量10个
+[INFO][2018-11-26 09:09:38][com.ag.zhshan.account.service.BillService]提单号TM2018111059开始处理！箱数量2个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111059A开始处理！箱数量1个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111059B开始处理！箱数量1个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111060开始处理！箱数量1个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111061开始处理！箱数量1个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111062开始处理！箱数量1个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111063开始处理！箱数量1个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111064开始处理！箱数量1个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111065开始处理！箱数量1个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111067开始处理！箱数量1个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111068开始处理！箱数量2个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111069开始处理！箱数量1个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]提单号TM2018111070开始处理！箱数量2个
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:150
+[INFO][2018-11-26 09:09:39][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：863==========================
+[INFO][2018-11-26 09:09:40][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:09:40][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"7434b48e-8541-4a5d-b2a3-cfa2e575ca74"},"detailsLst":[],"operMan":"XLGYWLGJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-26 09:09:40][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.9. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-26 09:09:42][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:09:42][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"c416b4b2-5744-4e54-a18f-f50030f2e992","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:09:42][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：1
+[INFO][2018-11-26 09:09:42][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：50
+[INFO][2018-11-26 09:09:42][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and BILL_NO='HU2018112608' and I_E_ID='I' and VID='c416b4b2-5744-4e54-a18f-f50030f2e992' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:09:43][com.ag.zhshan.account.service.BillService]提单号HU2018112608开始处理！箱数量50个
+[INFO][2018-11-26 09:09:43][com.ag.zhshan.account.service.BillService]没有费用产生！
+[INFO][2018-11-26 09:09:46][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:09:46][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"77a14ca3-6f26-40e1-a90e-0784ac5efdca","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:09:46][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：1
+[INFO][2018-11-26 09:09:46][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：14
+[INFO][2018-11-26 09:09:46][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and BILL_NO='HU2018112315' and I_E_ID='I' and VID='77a14ca3-6f26-40e1-a90e-0784ac5efdca' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:09:46][com.ag.zhshan.account.service.BillService]提单号HU2018112315开始处理！箱数量14个
+[INFO][2018-11-26 09:09:46][com.ag.zhshan.account.service.BillService]没有费用产生！
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"42573e03-bfbf-4513-bc06-8d5758912f5c","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：15
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：27
+[INFO][2018-11-26 09:09:49][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and I_E_ID='I' and VID='42573e03-bfbf-4513-bc06-8d5758912f5c' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK1890501开始处理！箱数量10个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905001开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905003开始处理！箱数量2个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905005开始处理！箱数量2个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905006开始处理！箱数量2个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905007开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905008开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905009开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905010开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905013开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905014开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905015开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905016开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905016A开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]提单号CK2018905016B开始处理！箱数量1个
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:90
+[INFO][2018-11-26 09:09:49][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：499==========================
+[INFO][2018-11-26 09:09:52][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:09:52][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"50375c77-d9a9-488e-b317-a7b5d7be3e11","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:09:52][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：3
+[INFO][2018-11-26 09:09:52][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：22
+[INFO][2018-11-26 09:09:52][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and I_E_ID='I' and VID='50375c77-d9a9-488e-b317-a7b5d7be3e11' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:09:52][com.ag.zhshan.account.service.BillService]提单号COSU4510574330开始处理！箱数量1个
+[INFO][2018-11-26 09:09:52][com.ag.zhshan.account.service.BillService]提单号COSU4518129920开始处理！箱数量1个
+[INFO][2018-11-26 09:09:52][com.ag.zhshan.account.service.BillService]提单号ES2018112404开始处理！箱数量20个
+[INFO][2018-11-26 09:09:52][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:10
+[INFO][2018-11-26 09:09:52][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：406==========================
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"9668feee-4807-4ea3-bb36-a74eea7a3f53","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：13
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：21
+[INFO][2018-11-26 09:09:55][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and I_E_ID='I' and VID='9668feee-4807-4ea3-bb36-a74eea7a3f53' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号ES2018111617开始处理！箱数量1个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号ES2018112111开始处理！箱数量1个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018111908开始处理！箱数量1个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018111909开始处理！箱数量1个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018111911开始处理！箱数量2个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018111914开始处理！箱数量2个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018112016开始处理！箱数量1个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018112215开始处理！箱数量1个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018112216开始处理！箱数量3个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018112217开始处理！箱数量3个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018112218开始处理！箱数量2个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018112219开始处理！箱数量1个
+[INFO][2018-11-26 09:09:55][com.ag.zhshan.account.service.BillService]提单号HU2018112314开始处理！箱数量2个
+[INFO][2018-11-26 09:09:56][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:128
+[INFO][2018-11-26 09:09:56][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：707==========================
+[INFO][2018-11-26 09:09:58][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:09:58][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"6e54503a-f914-48f1-9ac0-2b404e47f131","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:09:58][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：3
+[INFO][2018-11-26 09:09:58][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：32
+[INFO][2018-11-26 09:09:58][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and I_E_ID='I' and VID='6e54503a-f914-48f1-9ac0-2b404e47f131' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:09:58][com.ag.zhshan.account.service.BillService]提单号100810393108开始处理！箱数量1个
+[INFO][2018-11-26 09:09:59][com.ag.zhshan.account.service.BillService]提单号HU2018112603开始处理！箱数量1个
+[INFO][2018-11-26 09:09:59][com.ag.zhshan.account.service.BillService]提单号HU2018112604开始处理！箱数量30个
+[INFO][2018-11-26 09:09:59][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:5
+[INFO][2018-11-26 09:09:59][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：319==========================
+[INFO][2018-11-26 09:10:04][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:10:04][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"ecfe0a60-9a78-491c-bd83-f1a140921c1e","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:10:04][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：1
+[INFO][2018-11-26 09:10:04][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：0
+[INFO][2018-11-26 09:10:04][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and BILL_NO='GZ2018801295' and I_E_ID='I' and VID='ecfe0a60-9a78-491c-bd83-f1a140921c1e' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:10:04][com.ag.zhshan.account.service.BillService]提单号GZ2018801295开始处理！箱数量0个
+[INFO][2018-11-26 09:10:04][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:1
+[INFO][2018-11-26 09:10:04][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：241==========================
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"1c0bf3f6-0d51-44a6-b33b-322a9f74f0fd","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：9
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：83
+[INFO][2018-11-26 09:10:07][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and I_E_ID='I' and VID='1c0bf3f6-0d51-44a6-b33b-322a9f74f0fd' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]提单号HU2018110607开始处理！箱数量13个
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]提单号HU2018110609开始处理！箱数量7个
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]提单号HU2018110731开始处理！箱数量5个
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]提单号HU2018110732开始处理！箱数量9个
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]提单号HU2018110733开始处理！箱数量5个
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]提单号HU2018111910开始处理！箱数量10个
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]提单号HU2018111913开始处理！箱数量25个
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]提单号HU2018112122开始处理！箱数量3个
+[INFO][2018-11-26 09:10:07][com.ag.zhshan.account.service.BillService]提单号HU2018112123开始处理！箱数量6个
+[INFO][2018-11-26 09:10:08][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:498
+[INFO][2018-11-26 09:10:08][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：1385==========================
+[INFO][2018-11-26 09:10:12][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:10:12][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"779a3037-e3bb-45c1-9786-946415aa2dfe","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:10:12][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：3
+[INFO][2018-11-26 09:10:12][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：53
+[INFO][2018-11-26 09:10:12][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and I_E_ID='I' and VID='779a3037-e3bb-45c1-9786-946415aa2dfe' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:10:12][com.ag.zhshan.account.service.BillService]提单号ES2018112213开始处理！箱数量22个
+[INFO][2018-11-26 09:10:13][com.ag.zhshan.account.service.BillService]提单号ES2018112312开始处理！箱数量30个
+[INFO][2018-11-26 09:10:13][com.ag.zhshan.account.service.BillService]提单号TM2018113056开始处理！箱数量1个
+[INFO][2018-11-26 09:10:13][com.ag.zhshan.account.service.BillService]没有费用产生！
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]===================舱单计费调用开始：
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]{"allPCntrs":[],"conditionMap":{"vid":"55da8ae3-7c7a-4835-a018-7b82a51aadd3","ieId":"I"},"detailsLst":[],"operMan":"ZSGXRL","result":{"code":0,"success":true},"rigCntrs":[],"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]满足条件所有提单数量：44
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]满足条件所有箱数量：108
+[INFO][2018-11-26 09:10:17][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  TENANCY_ID='ZSG' and I_E_ID='I' and VID='55da8ae3-7c7a-4835-a018-7b82a51aadd3' and SETTLE_STATUS=0 and FEE_LIST_ID in('7255ada254b64062bff490754f4ae6bc','f94d1b6f3a934ead978387ea5bb8a5a2','8f46baa3ffbf4091b05c069a1af4c793','b075a878628a4a07b7f7ce95b1c1553b','a595ac66a0304278b37b36e85c74ac8e','0301','0101','6cf44a921efa4a64967621aa0fa7141a','4b6a5c6abf674945879702c00a1438be','4057b2637f7d487b946c359d2099dfbe','e8c618cd176140048a407441e24e4b46','0112','0503','0102','2d8909e311b24ba7a4f53cdae26ba767','0120','0302','2d8909e311b24ba7a4f53cdae26ba767','0132','08a86b2c29ae46b59743f1d0b11c4d37','0114','02bce193e6ae443eaff442dd9a584ded','f55c3f4c42474140b65e6c550d636bfa','27243886e6104b1c91237410272dc7e1','40821ee033d64777a79f04c745b974a8','a2ba8401f46b4111ae1814416bd04f99','42a185d35d8646b7b2d1ee7ffd5f6b48','cbf080b4103e4c81ba5a7f22b4aa8b26','cab22d7518ce44f6bb46f4ed4d5caf36','96a2a76b9d4f4b928b755503b70c41f9','858c102c2e3343bcadd77c1dbe0cf681','686752e7f0444bd0813d353d85ee6451','6eac07769cae4ba6bf5d534cd8bef8a8','cda5b8d16a1a4a6b8cef21863d93c26f','480c54dafb034092adcb997341de9191','cd078d3c3c14465fae19046e0d5a7232','37828c941e6843bd90cc025cf3e59d05','4891c8b7a5b34ff7be25c87dc929ab81','2c457260bd3c4bcb8e921739b5229dc0','4b6a5c6abf674945879702c00a1438be','688a20cb948f4df5841969e1b46d80ea','0303','313cb0a37fef4c86b2690124968b52c5','0222','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','7ab6a08042944c348e6a2dbdcfb241b3','c7592353553349bfa008a30fcb840653','ece5a586ad9a4e23ad3a587ec92b40b6','0a0284385758432ab4ed6563727ca33d','deb9b192a952460885d75d544c3f6f71','16fda0ec38ab411f9d5d33ddca10b06d','16fda0ec38ab411f9d5d33ddca10b06d','0a0284385758432ab4ed6563727ca33d','ece5a586ad9a4e23ad3a587ec92b40b6','da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d','e351ff7119c74dc2bee3a4d1ab53ec27','7e9e335a79cd42059feec9f4366d988c') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111903开始处理！箱数量2个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111907开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111914开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111914A开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111914B开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111915开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111915A开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111915B开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111917开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111917A开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111917B开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111917C开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111917D开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111917E开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111917F开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111917G开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111917H开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111919开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018111925开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112017开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112110开始处理！箱数量4个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112110A开始处理！箱数量4个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112110B开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112120开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112131开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206A开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206B开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206C开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206D开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206E开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206F开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206G开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206H开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206I开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206J开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206K开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206L开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112206M开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112219开始处理！箱数量1个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112220开始处理！箱数量2个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112324开始处理！箱数量30个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112326开始处理！箱数量28个
+[INFO][2018-11-26 09:10:17][com.ag.zhshan.account.service.BillService]提单号ES2018112334开始处理！箱数量1个
+[INFO][2018-11-26 09:10:18][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:112
+[INFO][2018-11-26 09:10:18][com.ag.zhshan.account.service.BillService]舱单计费调用结束，合计用时：808==========================
+[INFO][2018-11-26 09:10:24][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:10:24][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"9f9a57bf3963450eb33f2c30fd55c42f"},"detailsLst":[],"operMan":"XLGYWLGJ","receipts":[],"result":{"code":0,"success":true},"tenancyId":"XLG"}
+[ERROR][2018-11-26 09:10:24][com.alibaba.dubbo.rpc.filter.ExceptionFilter] [DUBBO] Got unchecked and undeclared exception which called by 192.168.1.11. service: com.ag.zhshan.account.dubboFace.IReceiptService, method: call, exception: java.lang.NullPointerException: null, dubbo version: dubbo, current host: 127.0.0.1
+java.lang.NullPointerException
+[INFO][2018-11-26 09:10:42][com.ag.zhshan.account.service.ShipperCarService]===================拖运计费调用开始：
+[INFO][2018-11-26 09:10:42][com.ag.zhshan.account.service.ShipperCarService]{"conditionMap":{"rpId":"4787c182-1c54-43fa-9533-42c4c2d1680d"},"detailsLst":[],"operMan":"ZKWTY","receipts":[],"result":{"code":0,"success":true},"tenancyId":"ZSG"}
+[INFO][2018-11-26 09:10:43][com.ag.base.OriginalTableNameImpl]sql==
+delete from accounts_details where  BUSSINESS_CODE='4787c182-1c54-43fa-9533-42c4c2d1680d' and TENANCY_ID='ZSG' and SETTLE_STATUS=0 and FEE_LIST_ID in('da0d071344c2446198d4ea4bdd05c63e','0222','b5c7ffe860274ea785ef3482e14ffb81','022201','fbba1752c5f044218fe8838b705169b9','9a29e9f7784646d395fd3af3b3c21377','ab7001972c564366a449ecdd5b364e90','5076d41ef9124ed5824b0606d1c28ff8','7ab6a08042944c348e6a2dbdcfb241b3','29e29df7ab804751aebc9388b6e54810','497d472d16dd4c9e99dee45bbacc6961','c7592353553349bfa008a30fcb840653','5bc3c52c38034095a863729ce4674c9d') and REMITTINGITEM_ID is null and Is_Manual=0 and PAY_FLAG=0 and PRINTNO IS NULL
+[INFO][2018-11-26 09:10:43][com.ag.zhshan.account.service.AccountDetailService]创建的费用明细数量:6
+[INFO][2018-11-26 09:10:43][com.ag.zhshan.account.service.ShipperCarService]拖运计费调用结束，合计用时：238===================
